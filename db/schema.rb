@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030200450) do
+ActiveRecord::Schema.define(version: 20141031143209) do
 
   create_table "users", force: true do |t|
     t.float    "latitude"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141030200450) do
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
 end
