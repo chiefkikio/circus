@@ -41,10 +41,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.label :class_type %><br>
+    <%= f.text_field :class_type %>
   </div>
-  
+
+  <div class="field">
+    <select name="user_id">
+      <option value="blah">blah</option>     
+      <option value="two">two</option>
+    </select>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

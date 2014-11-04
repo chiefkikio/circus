@@ -28,7 +28,7 @@
         <td><%= user.password %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
-        <td><%= user.type %></td>
+        <td><%= user.class_type %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -58,7 +58,8 @@ handler.buildMap({ internal: {id: 'basic_map'}}, function(){
             url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
             width:  36,
             height: 36
-          }
+          },
+          infowindow: "<%= user.name%><br><%= user.address %><br><%=user.email %><br><%= user.phone %>"
         }
       <% else %>
         {
@@ -68,7 +69,8 @@ handler.buildMap({ internal: {id: 'basic_map'}}, function(){
             url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
             width:  36,
             height: 36
-          }
+          },
+           infowindow: "<%= user.name%><br><%= user.address %><br><%=user.email %><br><%= user.phone %>"
         },
       <% end %>
     <% end %>
