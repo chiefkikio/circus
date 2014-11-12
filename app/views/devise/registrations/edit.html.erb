@@ -41,6 +41,11 @@
         <%= f.url_field :facebook, autofocus: true, class: "form-control" %>
       </div>
 
+       <div class="form-group">
+        <%= f.label :logo %><br/>
+        <%= f.url_field :logo, autofocus: true, class: "form-control" %>
+      </div>
+
       <div class="form-group">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107163440) do
+ActiveRecord::Schema.define(version: 20141110183025) do
 
   create_table "users", force: true do |t|
     t.float    "latitude"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20141107163440) do
     t.string   "last_sign_in_ip"
     t.string   "website"
     t.string   "facebook"
+    t.string   "logo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

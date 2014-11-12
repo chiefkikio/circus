@@ -37,6 +37,9 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 
+gem 'event-calendar', :require => 'event_calendar'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
