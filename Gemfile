@@ -37,7 +37,9 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
 
-gem 'event-calendar', :require => 'event_calendar'
+gem 'momentjs-rails'
+
+gem 'fullcalendar-rails'
 
 
 

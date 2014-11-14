@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+
   devise_for :users
   resources :users
 
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'users#index'
+
+  #get 'events' => 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
