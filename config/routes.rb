@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
+
   resources :events
 
   devise_for :users
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'users#index'
+  get '/about' => 'static_pages#about'
 
   #get 'events' => 'events#index'
 
