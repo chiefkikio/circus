@@ -47,16 +47,24 @@
 
     <div class="row text-center">
       <p>
-        <%= image_tag(@user.logo) %>
+        <%= image_tag(@user.logo, :size => "200", :alt => "logo image", :logo => "logo") %>
 
         <br><br>
 
-         <% if !@user.website.blank? %>  
-          <%= link_to(image_tag("https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png", :alt => "website link", :title => "Website"), @user.website) %>
-          <% end %>
-
         <% if !@user.facebook.blank? %> 
-          <%= link_to(image_tag("https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png", :alt => "facebook link", :title => "Facebook"), @user.facebook) %>
+          <%= link_to(image_tag("http://i.imgur.com/DGUwZPZl.png", :size => "35x35", :alt => "facebook link", :title => "Facebook"), @user.facebook) %>
+        <% end %>
+
+        <% if !@user.twitter.blank? %> 
+          <%= link_to(image_tag("http://i.imgur.com/YuBJm4j.png", :size => "35x35", :alt => "twitter link", :title => "Twitter"), @user.twitter) %>
+        <% end %>
+
+         <% if !@user.instagram.blank? %> 
+          <%= link_to(image_tag("http://i.imgur.com/HXVGFQil.png", :size => "35x35", :alt => "instagram link", :title => "Instagram"), @user.instagram) %>
+        <% end %>
+
+        <% if !@user.instagram.blank? %> 
+          <%= link_to(image_tag("http://i.imgur.com/Z3L9iGil.png", :size => "50x50", :alt => "email link", :title => "Email"), @user.email) %>
         <% end %>
       </p>
     </div>
@@ -89,6 +97,11 @@
   <p>
     <strong>Email:</strong>
     <%= @user.email %>
+  </p>
+
+  <p>
+    <strong>Website:</strong>
+    <%= @user.website %>
   </p>
 
   <p>

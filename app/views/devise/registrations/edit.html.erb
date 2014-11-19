@@ -7,6 +7,10 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
+
+      <fieldset>
+      <legend>Change User Information</legend>
+
       <div class="form-group">
         <%= f.label :name %><br />
         <%= f.text_field :name , autofocus: true, class: "form-control" %>
@@ -46,6 +50,11 @@
         <%= f.url_field :logo, autofocus: true, class: "form-control" %>
       </div>
 
+      </fieldset>
+      <br><br>
+      <fieldset>
+      <legend>Change Password</legend>
+
       <div class="form-group">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
@@ -55,6 +64,8 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
+
+     </fieldset>
 
       <div class="form-group">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
