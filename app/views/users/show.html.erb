@@ -45,10 +45,21 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
+    <div class="row text-center">
+      <p>
+        <%= image_tag(@user.logo) %>
 
-    <p>
-      <%= image_tag(@user.logo) %>
-    </p>
+        <br><br>
+
+         <% if !@user.website.blank? %>  
+          <%= link_to(image_tag("https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png", :alt => "website link", :title => "Website"), @user.website) %>
+          <% end %>
+
+        <% if !@user.facebook.blank? %> 
+          <%= link_to(image_tag("https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png", :alt => "facebook link", :title => "Facebook"), @user.facebook) %>
+        <% end %>
+      </p>
+    </div>
 
   <!-- <p>
     <strong>Latitude:</strong>
@@ -86,18 +97,6 @@
   </p>
 
   <p>
-    <strong>Website:</strong>
-    <% if !@user.website.blank? %>  
-      <%= link_to(image_tag("https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png", :alt => "website link", :title => "Home"), @user.website) %>
-    <% end %>
-  </p>
-
-  <p>
-    <strong>Facebook:</strong>
-    <%= @user.facebook %>
-  </p>
-
-  <p>
     <strong>Type:</strong>
     <%= @user.class_type %>
   </p>
@@ -127,8 +126,10 @@
             <td><%= event.endtime %></td>
             <td><%= event.description %></td>
             <!--<td><%= link_to 'Show', event %></td>-->
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if @current_user != nil && @user.id == current_user.id %>
+              <td><%= link_to 'Edit', edit_event_path(event) %></td>
+              <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
 
           </tr>
         <% end %>
