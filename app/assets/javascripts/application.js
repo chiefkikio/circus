@@ -16,11 +16,11 @@
 //= require jquery_ujs
 //= require turbolinks
 
+//= require wice_grid
+
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/gcal
-
-
 
 //= require underscore
 //= require gmaps/google

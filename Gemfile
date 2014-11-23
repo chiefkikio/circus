@@ -41,6 +41,8 @@ gem 'momentjs-rails'
 
 gem 'fullcalendar-rails'
 
+gem 'wice_grid', '~> 3.4.10'
+
 
 
 # Use ActiveModel has_secure_password
