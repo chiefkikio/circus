@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @events_grid = initialize_grid(Event)
   end
 
   # GET /users/new

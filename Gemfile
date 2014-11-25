@@ -43,6 +43,9 @@ gem 'fullcalendar-rails'
 
 gem 'wice_grid', '~> 3.4.10'
 
+gem 'jquery-ui-rails'
+
+
 
 
 # Use ActiveModel has_secure_password

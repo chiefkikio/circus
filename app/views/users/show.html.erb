@@ -79,14 +79,15 @@
     <%= @user.longitude %>
   </p>
   -->
-  <p>
-    <strong>Address:</strong>
-    <%= @user.address %>
-  </p>
 
   <p>
     <strong>Name:</strong>
     <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @user.address %>
   </p>
 
   <!-- <p>
@@ -96,12 +97,12 @@
 
   <p>
     <strong>Email:</strong>
-    <%= @user.email %>
+    <%= mail_to(@user.email) %>
   </p>
 
   <p>
     <strong>Website:</strong>
-    <%= @user.website %>
+    <%= link_to(@user.website) %>
   </p>
 
   <p>
@@ -116,24 +117,34 @@
 
   <h2> Classes </h2>
 
-  <!--<div id='calendar'></div> -->
+<!--<div id='calendar'></div> -->
 <!--  <div class="container"> -->
 
-<!--
 <%= grid(@events_grid) do |g|
-
-  g.column  do |task|
-    task.title
+  g.column  name: 'name', attribute: 'name' do |task|
+    task.name
   end
 
-  g.column do |task|
+  g.column name: 'location', attribute: 'location' do |task|
+    task.location
+  end
+
+  g.column name: 'start', attribute: 'starttime' do |task|
+    task.starttime
+  end
+
+  g.column name: 'end', attribute: 'endtime' do |task|
+    task.endtime
+  end
+
+  g.column name: 'description', attribute: 'description' do |task|
     task.description
   end
 
   g.column do |task|
-    link_to('Edit', edit_task_path(task))
+    link_to('Edit', edit_event_path(task))
   end
-end %>-->
+end %>
 
     <table class="table">
       <thead>
