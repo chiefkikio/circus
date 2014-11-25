@@ -47,7 +47,9 @@
 
     <div class="row text-center">
       <p>
-        <%= image_tag(@user.logo, :size => "200", :alt => "logo image", :logo => "logo") %>
+        <% if !@user.logo.blank? %> 
+          <%= image_tag(@user.logo, :size => "200", :alt => "logo image", :logo => "logo") %>
+        <% end %>
 
         <br><br>
 
@@ -120,9 +122,14 @@
 <!--<div id='calendar'></div> -->
 <!--  <div class="container"> -->
 
+<%# show_filters: :when_filtered %>
 <%= grid(@events_grid) do |g|
   g.column  name: 'name', attribute: 'name' do |task|
     task.name
+  end
+
+  g.column name: 'type', attribute: 'classtype' do |task|
+    task.classtype
   end
 
   g.column name: 'location', attribute: 'location' do |task|
@@ -150,6 +157,7 @@ end %>
       <thead>
         <tr>
           <th>Name</th>
+          <th>Type</th>
           <th>Location</th>
           <th>Start</th>
           <th>End</th>
@@ -162,12 +170,13 @@ end %>
         <% @user.events.each do |event| %>
           <tr>
             <td><%= event.name %></td>
+            <td><%= event.classtype %></td>
             <td><%= event.location %></td>
             <td><%= event.starttime %></td>
             <td><%= event.endtime %></td>
             <td><%= event.description %></td>
             <!--<td><%= link_to 'Show', event %></td>-->
-            <% if @current_user != nil && @user.id == current_user.id %>
+            <% if current_user != nil && @user.id == current_user.id %>
               <td><%= link_to 'Edit', edit_event_path(event) %></td>
               <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>

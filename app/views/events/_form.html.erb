@@ -11,10 +11,41 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <div class="field">
+    <!-- does the field after :classtype get filled into database?
+    Will this cause later problems with trying to access? -->
+    <%= f.label :classtype %>
+    <br>
+    <%= f.radio_button :classtype, 'Aerial Silks' %> 
+    <%= f.label :classtype, 'Aerial Silks', :value => 'aerial_silks' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Aerial Hammock' %> 
+    <%= f.label :classtype, 'Aerial Hammock', :value => 'aerial_hammock' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Corde Lisse' %> 
+    <%= f.label :classtype, 'Corde Lisse', :value => 'corde_lisse' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Flying Trapeze' %> 
+    <%= f.label :classtype, 'FlyingTrapeze', :value => 'flying_trapeze' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Lyra' %> 
+    <%= f.label :classtype, 'Lyra', :value => 'lyra' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Partner Acro' %> 
+    <%= f.label :classtype, 'PartnerAcro', :value => 'partner_acro' %> 
+    <br>
+    <%= f.radio_button :classtype, 'Static Trapeze' %> 
+    <%= f.label :classtype, 'Static Trapeze', :value => 'static_trapeze' %> 
+    <br>
+
+  </div>
+
   <div class="field">
     <%= f.label :starttime %><br>
     <%= f.datetime_select :starttime %>
@@ -34,4 +65,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

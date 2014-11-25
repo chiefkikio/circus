@@ -65,7 +65,7 @@ handler.buildMap({ internal: {id: 'basic_map'}}, function(){
              // width:  36,
              // height: 36
             //},
-            infowindow: "<%= link_to user.name, user %> <br><%= user.address %><br><%=user.email %><br><%= user.phone %>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mattis ligula, sit amet tempus justo. Donec id consequat risus. Sed malesuada tristique arcu, vitae consequat massa. Sed ut lacus enim. Integer pellentesque quis dui nec efficitur. Praesent et finibus metus. Mauris non vulputate nisi, eget tempor diam. Duis laoreet sapien id nunc rhoncus, ut aliquet felis vulputate. Donec in est consequat, pulvinar eros sit amet, ultrices leo."
+            infowindow: "<%= user.name %><br><%= user.address %><br><%=user.email %><br><%= user.phone %>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mattis ligula, sit amet tempus justo. Donec id consequat risus. Sed malesuada tristique arcu, vitae consequat massa. Sed ut lacus enim. Integer pellentesque quis dui nec efficitur. Praesent et finibus metus. Mauris non vulputate nisi, eget tempor diam. Duis laoreet sapien id nunc rhoncus, ut aliquet felis vulputate. Donec in est consequat, pulvinar eros sit amet, ultrices leo."
           }
         <% else %>
           {
@@ -76,7 +76,7 @@ handler.buildMap({ internal: {id: 'basic_map'}}, function(){
             //   width:  36,
             //   height: 36
             // },
-             infowindow: "<%= user.name%><br><%= user.address %><br><%=user.email %><br><%= user.phone %>"
+             infowindow: "<%= link_to(user.name, 'http://www.google.com')%><br><%= user.address %><br><%=user.email %><br><%= user.phone %>"
           },
         <% end %>
         <% end %>
