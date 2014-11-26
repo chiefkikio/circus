@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	geocoded_by :address
 	after_validation :geocode
-  has_many :events
+  has_many :events, dependent: :destroy
 
 end

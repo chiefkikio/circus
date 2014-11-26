@@ -5,12 +5,20 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @users_grid = initialize_grid(User, 
+      per_page: 10
+      )
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @events_grid = initialize_grid(Event, per_page: 10)
+    #@events_grid = initialize_grid(Event, per_page: 10)
+  end
+
+  #GET /map
+  def map
+    @users = User.all
   end
 
   # GET /users/new

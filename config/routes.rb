@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
   get '/about' => 'static_pages#about'
-
+  get '/map' => 'users#map'
+  get 'events' => 'events#index'
+  
   #get 'events' => 'events#index'
 
   # Example of regular route:

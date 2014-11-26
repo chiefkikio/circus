@@ -1,6 +1,5 @@
-
+<!-- this css is all for the calendar -->
 <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-
 <script src='lib/jquery.min.js'></script>
 <script src='lib/moment.min.js'></script>
 <script src='fullcalendar/fullcalendar.js'></script>
@@ -92,11 +91,6 @@
     <%= @user.address %>
   </p>
 
-  <!-- <p>
-    <strong>Password:</strong>
-    <%= @user.password %>
-  </p> -->
-
   <p>
     <strong>Email:</strong>
     <%= mail_to(@user.email) %>
@@ -122,43 +116,13 @@
 <!--<div id='calendar'></div> -->
 <!--  <div class="container"> -->
 
-<%# show_filters: :when_filtered %>
-<%= grid(@events_grid) do |g|
-  g.column  name: 'name', attribute: 'name' do |task|
-    task.name
-  end
-
-  g.column name: 'type', attribute: 'classtype' do |task|
-    task.classtype
-  end
-
-  g.column name: 'location', attribute: 'location' do |task|
-    task.location
-  end
-
-  g.column name: 'start', attribute: 'starttime' do |task|
-    task.starttime
-  end
-
-  g.column name: 'end', attribute: 'endtime' do |task|
-    task.endtime
-  end
-
-  g.column name: 'description', attribute: 'description' do |task|
-    task.description
-  end
-
-  g.column do |task|
-    link_to('Edit', edit_event_path(task))
-  end
-end %>
-
     <table class="table">
       <thead>
         <tr>
           <th>Name</th>
           <th>Type</th>
           <th>Location</th>
+          <th>Weekday</th>
           <th>Start</th>
           <th>End</th>
           <th>Description</th>
@@ -172,7 +136,8 @@ end %>
             <td><%= event.name %></td>
             <td><%= event.classtype %></td>
             <td><%= event.location %></td>
-            <td><%= event.starttime %></td>
+            <td><%= event.starttime.to_formatted_s(:weekday) %></td>
+            <td><%= event.starttime.to_formatted_s(:time_ampm) %></td>
             <td><%= event.endtime %></td>
             <td><%= event.description %></td>
             <!--<td><%= link_to 'Show', event %></td>-->

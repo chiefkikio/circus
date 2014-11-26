@@ -2,10 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    #@events = Event.all
+    @events_grid = initialize_grid(Event, per_page: 10)
   end
 
   def show
+
   end
 
   def new

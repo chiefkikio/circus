@@ -1,9 +1,26 @@
+<h1>Studio List</h1>
+   <%# show_filters: :when_filtered %>
+  <%= grid(@users_grid) do |g|
+    g.column  name: 'name', attribute: 'name' do |task|
+      task.name
+    end
 
-<!-- this should all be moved to application.html -->
+    g.column  name: 'address', attribute: 'address' do |task|
+      task.address
+    end
 
-<script src="//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry" type="text/javascript"></script>
-<script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"></script>
+    g.column  name: 'email', attribute: 'email' do |task|
+      task.address
+    end
 
+    g.column  name: 'class_type', attribute: 'class_type' do |task|
+      task.class_type
+    end
+
+
+  end %>
+
+<%= link_to 'New Event', new_event_path %>
 
 <!-- this is for twitter bootstrap's grid system -->
 <div class="container">
@@ -42,50 +59,6 @@
 </table>
 
 <br>
-
-<!-- <%= link_to 'New User', new_user_path %> -->
-
-<div style='width: 1200px;'>
-  <div id="basic_map" style='width: 1200px; height: 800px;'></div>
-</div>
-
-<script type="text/javascript">
-
-var handler = Gmaps.build('Google');
-handler.buildMap({ internal: {id: 'basic_map'}}, function(){
-  var markers = handler.addMarkers([
-    <% @users.each do |user| %>
-      <% if !user.address.blank? %> <!-- only appears in map if address given -->
-        <% if @users.at(-1) == user %>
-          {
-            lat:<%= user.latitude %>, 
-            lng: <%= user.longitude %>, 
-            //picture: {
-           //   url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-             // width:  36,
-             // height: 36
-            //},
-            infowindow: "<%= user.name %><br><%= user.address %><br><%=user.email %><br><%= user.phone %>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut mattis ligula, sit amet tempus justo. Donec id consequat risus. Sed malesuada tristique arcu, vitae consequat massa. Sed ut lacus enim. Integer pellentesque quis dui nec efficitur. Praesent et finibus metus. Mauris non vulputate nisi, eget tempor diam. Duis laoreet sapien id nunc rhoncus, ut aliquet felis vulputate. Donec in est consequat, pulvinar eros sit amet, ultrices leo."
-          }
-        <% else %>
-          {
-            lat:<%= user.latitude %>, 
-            lng: <%= user.longitude %>,
-            // picture: {
-            //   url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-            //   width:  36,
-            //   height: 36
-            // },
-             infowindow: "<%= link_to(user.name, 'http://www.google.com')%><br><%= user.address %><br><%=user.email %><br><%= user.phone %>"
-          },
-        <% end %>
-        <% end %>
-    <% end %>
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script>
 
 </div>
 
