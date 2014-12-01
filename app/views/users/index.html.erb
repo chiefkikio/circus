@@ -10,26 +10,26 @@
     end
 
     g.column  name: 'email', attribute: 'email' do |task|
-      task.address
+      task.email
     end
 
-    g.column  name: 'class_type', attribute: 'class_type' do |task|
+    g.column  name: 'class type', attribute: 'classtype', model: Event do |task|
+      #task.events.each do |event|
+      #  event.classtype
       task.class_type
+      #end
     end
-
 
   end %>
 
-<%= link_to 'New Event', new_event_path %>
-
 <!-- this is for twitter bootstrap's grid system -->
-<div class="container">
+<!-- <div class="container">
 <table class="table">
   <thead>
-    <tr>
+    <tr> -->
       <!--<th>Latitude</th>
       <th>Longitude</th>-->
-      <th>Name</th>
+      <!--<th>Name</th>
       <th>Address</th>
       <th>Email</th>
       <th>Phone</th>
@@ -42,10 +42,10 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <!--<td><%= user.latitude %></td>
+      <tr> -->
+        <!-- <td><%= user.latitude %></td>
         <td><%= user.longitude %></td> -->
-        <td><%= user.name %></td>
+        <!-- <td><%= user.name %></td>
         <td><%= user.address %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
@@ -56,7 +56,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
