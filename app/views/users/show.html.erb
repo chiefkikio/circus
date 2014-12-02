@@ -53,19 +53,19 @@
         <br><br>
 
         <% if !@user.facebook.blank? %> 
-          <%= link_to(image_tag("http://i.imgur.com/DGUwZPZl.png", :size => "35x35", :alt => "facebook link", :title => "Facebook"), @user.facebook) %>
+          <%= link_to(image_tag("http://i.imgur.com/DGUwZPZl.png", :size => "35x35", :alt => "facebook link", :title => "Facebook"), @user.facebook, :target => "_blank") %>
         <% end %>
 
         <% if !@user.twitter.blank? %> 
-          <%= link_to(image_tag("http://i.imgur.com/YuBJm4j.png", :size => "35x35", :alt => "twitter link", :title => "Twitter"), @user.twitter) %>
+          <%= link_to(image_tag("http://i.imgur.com/YuBJm4j.png", :size => "35x35", :alt => "twitter link", :title => "Twitter"), @user.twitter, :target => "_blank") %>
         <% end %>
 
          <% if !@user.instagram.blank? %> 
-          <%= link_to(image_tag("http://i.imgur.com/HXVGFQil.png", :size => "35x35", :alt => "instagram link", :title => "Instagram"), @user.instagram) %>
+          <%= link_to(image_tag("http://i.imgur.com/HXVGFQil.png", :size => "35x35", :alt => "instagram link", :title => "Instagram"), @user.instagram, :target => "_blank") %>
         <% end %>
 
-        <% if !@user.instagram.blank? %> 
-          <%= link_to(image_tag("http://i.imgur.com/Z3L9iGil.png", :size => "50x50", :alt => "email link", :title => "Email"), @user.email) %>
+        <% if !@user.email.blank? %> 
+          <%= mail_to(@user.email, image_tag("http://i.imgur.com/Z3L9iGil.png", :size => "35x35", :alt => "email link", :title => "Email")) %>
         <% end %>
       </p>
     </div>
@@ -138,7 +138,7 @@
             <td><%= event.location %></td>
             <td><%= event.starttime.to_formatted_s(:weekday) %></td>
             <td><%= event.starttime.to_formatted_s(:time_ampm) %></td>
-            <td><%= event.endtime %></td>
+            <td><%= event.endtime.to_formatted_s(:time_ampm) %></td>
             <td><%= event.description %></td>
             <!--<td><%= link_to 'Show', event %></td>-->
             <% if current_user != nil && @user.id == current_user.id %>

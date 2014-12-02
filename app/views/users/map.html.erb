@@ -56,30 +56,19 @@
 
     ]);
 
-function displayOnMap(position){
-  var markertwo = handler.addMarker({
-    lat: position.coords.latitude,
-    lng: position.coords.longitude,
-    picture: {
-      url: "http://i.imgur.com/BeptzAb.png",
-      width:15,
-      height:15
-    },
-    infowindow: "Your location!"
-  });
-  handler.map.centerOn(markertwo);
-};
-
- /* handler.addMarkers( {
-           Lat: Gmaps.map.userLocation.lat(),
-            Lng: Gmaps.map.userLocation.lng(), 
-           picture: {
-             url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-             width:  36,
-             height: 36
-            }
-            }
-        );  */
+    function displayOnMap(position){
+      var markertwo = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+        picture: {
+          url: "http://i.imgur.com/BeptzAb.png",
+          width:15,
+          height:15
+        },
+        infowindow: "Your location!"
+      });
+      handler.map.centerOn(markertwo);
+    };
 
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

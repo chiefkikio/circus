@@ -54,16 +54,9 @@
         <%= f.url_field :instagram, autofocus: true, class: "form-control" %>
       </div>
 
-
        <div class="form-group">
         <%= f.label :logo %><br/>
         <%= f.url_field :logo, autofocus: true, class: "form-control" %>
-      </div>
-
-      <!-- silks, static trapeze, lyra, corde lisse, sling, hand balancing, acroyoga-->
-      <div class="form-group">
-        <%= f.label :logo %>
-        <%= f.check_box :logo %>
       </div>
 
       </fieldset>
@@ -83,10 +76,15 @@
 
      </fieldset>
 
+      <br><br>
+      <fieldset>
+       <legend>Confirm Password</legend>
+
       <div class="form-group">
         <%= f.label :current_password %> <i>(You must enter current password to make any changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
+      </fieldset>
 
       <div>
         <%= f.submit "Update", class: "btn btn-default" %>

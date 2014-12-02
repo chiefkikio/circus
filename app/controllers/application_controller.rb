@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
 	# need to add parameters for each field in the form
   	def configure_permitted_parameters
-  		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :address, :website, :facebook, :email, :logo, :password, :password_confirmation, :current_password) }
+  		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :address, :website, :facebook, :twitter, :instagram, :email, :logo, :password, :password_confirmation, :current_password) }
   		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   	end
 end

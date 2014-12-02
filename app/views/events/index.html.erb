@@ -1,3 +1,5 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
 <h1>Class List</h1>
    <%# show_filters: :when_filtered %>
   <%= grid(@events_grid) do |g|
@@ -7,7 +9,7 @@
 
     g.column name: 'host', attribute: 'host' do |event|
       if event.user_id != nil && User.exists?(event.user_id) == true
-        User.find(event.user_id).name
+        #User.find(event.user_id).name
         link_to(User.find(event.user_id).name, User.find(event.user_id))
       end
     end
@@ -38,3 +40,4 @@
   end %>
 
 <%= link_to 'New Event', new_event_path %>
+</div></div>
