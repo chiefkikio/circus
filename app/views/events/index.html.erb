@@ -1,28 +1,35 @@
 <h1>Class List</h1>
    <%# show_filters: :when_filtered %>
   <%= grid(@events_grid) do |g|
-    g.column  name: 'name', attribute: 'name' do |task|
-      task.name
+    g.column  name: 'name', attribute: 'name' do |event|
+      event.name
     end
 
-    g.column name: 'type', attribute: 'classtype' do |task|
-      task.classtype
+    g.column name: 'host', attribute: 'host' do |event|
+      if event.user_id != nil && User.exists?(event.user_id) == true
+        User.find(event.user_id).name
+        link_to(User.find(event.user_id).name, User.find(event.user_id))
+      end
     end
 
-    g.column name: 'location', attribute: 'location' do |task|
-      task.location
+    g.column name: 'type', attribute: 'classtype' do |event|
+      event.classtype
     end
 
-    g.column name: 'start', attribute: 'starttime' do |task|
-      task.starttime
+    g.column name: 'location', attribute: 'location' do |event|
+      event.location
     end
 
-    g.column name: 'end', attribute: 'endtime' do |task|
-      task.endtime
+    g.column name: 'start', attribute: 'starttime' do |event|
+      event.starttime
     end
 
-    g.column name: 'description', attribute: 'description' do |task|
-      task.description
+    g.column name: 'end', attribute: 'endtime' do |event|
+      event.endtime
+    end
+
+    g.column name: 'description', attribute: 'description' do |event|
+      event.description
     end
 
     g.column do |task|
