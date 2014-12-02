@@ -16,6 +16,10 @@
 
   var handler = Gmaps.build('Google');
   handler.buildMap({ internal: {id: 'basic_map'}}, function(){
+     
+     if(navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(displayOnMap);
+
     var markers = handler.addMarkers([
       <% @users.each do |user| %>
         <% if !user.address.blank? %> <!-- only appears in map if address given -->
@@ -45,13 +49,43 @@
                  /* infowindow: '<% user.events.each do |event| %><%= event.classtype %><% end %><br><a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br/><%= user.address %><br><%=user.email %><br><%= user.phone %>'*/
 
             },
-          <% end %>
-          <% end %>
-      <% end %>
+          <% end %> //end if user is last
+          <% end %> // end if address isnt blank
+      <% end %> //end user
+
+
     ]);
+
+function displayOnMap(position){
+  var markertwo = handler.addMarker({
+    lat: position.coords.latitude,
+    lng: position.coords.longitude,
+    picture: {
+      url: "http://i.imgur.com/BeptzAb.png",
+      width:15,
+      height:15
+    },
+    infowindow: "Your location!"
+  });
+  handler.map.centerOn(markertwo);
+};
+
+ /* handler.addMarkers( {
+           Lat: Gmaps.map.userLocation.lat(),
+            Lng: Gmaps.map.userLocation.lng(), 
+           picture: {
+             url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+             width:  36,
+             height: 36
+            }
+            }
+        );  */
+
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+
+
   </script>
 
 </body>
