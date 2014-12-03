@@ -1,12 +1,4 @@
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-
-<h1>Studio List</h1>
-   <%# show_filters: :when_filtered %>
-
-   <%= render 'users_grid' %>
-
- <!--  <%= grid(@users_grid) do |g|
+<%= grid(@users_grid) do |g|
     g.column  name: 'name', attribute: 'name' do |task|
       link_to(task.name, task)
     end
@@ -26,13 +18,4 @@
       #end
     end
 
-  end %> -->
-
-<br>
-
-</div>
-
-</body>
-
-</div>
-</div>
+  end %>

@@ -7,10 +7,13 @@ class UsersController < ApplicationController
     @users = User.all
     @users_grid = initialize_grid(User, 
       include: :events,
+      name: 'studios',
       per_page: 10,
       enable_export_to_csv: true,
       csv_file_name:        'studiolocations'
       )
+
+     export_grid_if_requested('studios' => 'users_grid')
   end
 
   # GET /users/1
