@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/map' => 'users#map'
   get 'events' => 'events#index'
   get '/users' => 'users#index'
-  
+  get 'circusinfo' => 'static_pages#circusinfo'
+
   #get 'events' => 'events#index'
 
   # Example of regular route:

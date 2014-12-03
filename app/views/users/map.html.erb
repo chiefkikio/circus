@@ -32,7 +32,7 @@
                // width:  36,
                // height: 36
               //},
-              infowindow: '<a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br><%= user.address %><br><%=user.email %><br><%= user.phone %>'
+              infowindow: '<a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br><% user.events.each do |event| %><% if event.classtype == "Aerial Silks" %><img src="http://i.imgur.com/D5pLBVY.jpg"><elsif event.classtype == "Lyra"><img src="http://i.imgur.com/Itst4pU.jpg"><% end %><% end %><br/><%= user.address %><br><%=user.email %><br><%= user.phone %>'
             }
           <% else %>
             {
@@ -44,7 +44,7 @@
               //   height: 36
               // },
               // WHY DOES THIS GIVE A SHIT ABOUT SPACES AND NEW LINES UGHHHh
-               infowindow: '<% user.events.each do |event| %><% if event.classtype == "Aerial Hammock" %><img src="https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png"<elsif event.classtype == "Flying Trapeze"><img src="https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png"><% end %><br><%= event.classtype %><% end %><br><a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br/><%= user.address %><br><%=user.email %><br><%= user.phone %>'
+               infowindow: '<a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br><% user.events.each do |event| %><% if event.classtype == "Aerial Silks" %><img src="http://i.imgur.com/D5pLBVY.jpg"><elsif event.classtype == "Lyra"><img src="http://i.imgur.com/Itst4pU.jpg"><% end %><% end %><br/><%= user.address %><br><%=user.email %><br><%= user.phone %>'
 
                  /* infowindow: '<% user.events.each do |event| %><%= event.classtype %><% end %><br><a href="/users/' + <%= user.id %> + '"><%= user.name %></a><br/><%= user.address %><br><%=user.email %><br><%= user.phone %>'*/
 
