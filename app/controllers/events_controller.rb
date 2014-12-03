@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     #@events = Event.all
-    @events_grid = initialize_grid(Event, per_page: 10)
+    @events_grid = initialize_grid(Event, per_page: 8)
   end
 
   def show

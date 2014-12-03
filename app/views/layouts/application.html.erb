@@ -41,7 +41,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li>Welcome back <%= link_to(current_user.name, current_user) %></li>
+          <li><%= link_to("Welcome back #{current_user.name}", current_user) %></li>
           <li><%= link_to("Settings", edit_user_registration_path) %></li>
           <li><%= link_to("Sign out", destroy_user_session_path, :method => :delete) %></li>
         <% else %>
