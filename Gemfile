@@ -7,7 +7,9 @@ gem 'rails', '4.1.6'
 #gem 'sqlite3'
 
 # use sqlite3 only for development
-gem 'sqlite3', group: :development
+group :development, :test do 
+gem 'sqlite3'
+end
 
 # use postgres for production 
 gem 'pg', group: :production
