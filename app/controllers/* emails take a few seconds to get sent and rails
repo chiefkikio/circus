@@ -1,8 +1,0 @@
-* emails take a few seconds to get sent and rails server gets locked up and cant send http requests. so it would get locked down
-* most people send an http request for an email service. 
-* you can set up your own smtp servers or you can use other peoples
-	you can hook it up to gmail
-	mailchimp, sendgrid, mandril (for transactional emails)
-	marketing emails or transactional emails.
-
-postfix smtp server

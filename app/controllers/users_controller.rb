@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
+  # you could throw csv in here
+  # require 'csv'    
+
+  # filename = 'studiolocations.csv'
+  # CSV.foreach(filename, :headers => true) do |row|
+  #   User.create!(row.to_hash)
+  # end
+
   # GET /users
   # GET /users.json
   def index
